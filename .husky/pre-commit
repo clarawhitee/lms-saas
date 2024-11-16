@@ -1,2 +1,6 @@
-yarn format
-yarn lint
+# .husky/pre-commit
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Run format and lint in parallel to save time
+(bun format & bun lint) || exit 1
