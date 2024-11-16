@@ -86,6 +86,11 @@ export const onCreateNewGroup = async (
             channel: {
               select: {
                 id: true,
+                  firstname: true,
+                lastname: true,
+                image: true,
+                id: true,
+                stripeId: true,
               },
               take: 1,
               orderBy: {
