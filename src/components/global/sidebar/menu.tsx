@@ -59,19 +59,23 @@ const SideBarMenu = ({
         {SIDEBAR_SETTINGS_MENU.map((item) =>
           item.integration ? (
             userId === groupUserId && (
-              <Link
-                className={cn(
-                  "flex gap-x-2 items-center font-semibold rounded-xl text-themeTextGray hover:bg-themeGray p-2",
-                  currentPage === "settings"
-                    ? !item.path && "text-white"
-                    : currentPage === item.path && "text-white",
-                )}
-                href={`/group/${groupid}/settings/${item.path}`}
-                key={item.id}
-              >
-                {item.icon}
-                {item.label}
-              </Link>
+             <Link
+  id="channel-link"
+  key={channel.id}
+  className={cn(
+    "flex justify-between hover:bg-gradient-to-r hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 hover:animate-gradient p-2 group rounded-lg items-center transition-all duration-300 ease-in-out",
+    channel.id === current && edit && "bg-themeGray",
+  )}
+  href={`/group/${channel.groupId}/channel/${channel.id}`}
+  {...(channel.name !== "general" &&
+    channel.name !== "announcements" && {
+      onDoubleClick: () => onEditChannel(channel.id),
+      ref: channelRef,
+    })}
+>
+  {/* Link Content */}
+</Link>
+
             )
           ) : (
             <Link
