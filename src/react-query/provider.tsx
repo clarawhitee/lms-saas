@@ -1,5 +1,5 @@
 "use client"
-
+// for advanced queries
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 type ReactQueryProviderProps = {
