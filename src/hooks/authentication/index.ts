@@ -1,3 +1,6 @@
+//custom hooks
+"use server";
+
 import { onSignUpUser } from "@/actions/auth"
 import { SignUpSchema } from "@/components/forms/sign-up/schema"
 import { useSignIn, useSignUp } from "@clerk/nextjs"
