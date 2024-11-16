@@ -172,6 +172,15 @@ model Message {
   senderid   String?  @db.Uuid
   recieverId String?  @db.Uuid
 }
+model Notification {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String   @db.Uuid
+  content   String
+  createdAt DateTime @default(now())
+  read      Boolean  @default(false)
+}
+
 
 enum GROUP_PRIVACY {
   PUBLIC
