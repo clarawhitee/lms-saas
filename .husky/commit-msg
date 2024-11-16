@@ -1,1 +1,5 @@
-npx --no -- commitlint --edit $1
+# .husky/commit-msg
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+bunx commitlint --edit "$1" || exit 1
