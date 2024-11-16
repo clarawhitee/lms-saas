@@ -1,5 +1,11 @@
 "use server"
 
+
+/**
+ * Fetches courses associated with a specific group.
+ *
+ * @param {string} groupid - The ID of the group whose courses are to be retrieved.
+**/
 import { client } from "@/lib/prisma"
 
 export const onGetGroupCourses = async (groupid: string) => {
