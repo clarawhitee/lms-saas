@@ -1,31 +1,33 @@
-//this is our redux store
 "use client"
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { TypedUseSelectorHook, useSelector } from "react-redux"
-import chatReducer from "./slices/chats-slices"
-import infiniteScrollReducer from "./slices/infinite-scroll-slice"
-import onlineTrackingReducer from "./slices/online-member-slice"
-import searchReducer from "./slices/search-slice"
 
+// Import your slice reducers
+import chatSlice from "./slices/chats-slice"
+import infiniteScrollSlice from "./slices/infinite-scroll-slice"
+import onlineTrackingSlice from "./slices/online-member-slice"
+import searchSlice from "./slices/search-slice"
+
+// Combine the reducers into a single root reducer
 const rootReducer = combineReducers({
-  //add all your reducers here
-  searchReducer,
-  onlineTrackingReducer,
-  infiniteScrollReducer,
-  chatReducer,
+  search: searchSlice,
+  onlineTracking: onlineTrackingSlice,
+  infiniteScroll: infiniteScrollSlice,
+  chat: chatSlice,
 })
 
+// Configure the Redux store
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false,
+      serializableCheck: false, // Disable serializable check for non-serializable values
     }),
 })
 
-//we export these type definitions
+// Define RootState and AppDispatch types for type safety
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
-//this useAppSelector has type definitions added
+// Create a strongly typed version of useSelector
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
