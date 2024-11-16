@@ -1,4 +1,3 @@
-Certainly! Below is a modern, aesthetically pleasing README.md template for a Learning Management System (LMS) SaaS product. You can customize it according to your specific project details.
 
 ```markdown
 # 📚 **LMS SaaS: Your Ultimate Learning Management Solution**
