@@ -53,7 +53,7 @@ export const CourseContentForm = ({
       />
       {onEditDescription && (
         <Button
-          className="mt-10 self-end bg-themeBlack border-themeGray"
+          className="mt-10 self-end bg-themeBlack border border-blue-800 border-themeGray"
           variant="outline"
         >
           <Loader loading={isPending}>Save Content</Loader>
