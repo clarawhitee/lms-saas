@@ -6,7 +6,7 @@ export const onGetGroupCourses = async (groupid: string) => {
   try {
     const courses = await client.course.findMany?({
       where: {
-        groupId: groupid,
+        groupId?: groupeid,
       },
       take: 8,
       orderBy: {
