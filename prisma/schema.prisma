@@ -131,6 +131,7 @@ model Course {
   Group       Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
   groupId     String?  @db.Uuid
   modules     Module[]
+  course       string? @id @db.Uuid   //added this 
 }
 
 model Module {
