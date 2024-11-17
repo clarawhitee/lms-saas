@@ -21,7 +21,10 @@ export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false, // Disable serializable check for non-serializable values
+      serializableCheck: {
+        // You might want to specify options if you have specific non-serializable structures
+        ignoredActions: ['YOUR_ACTION_TYPE'], // Example: ignore specific actions
+      },
     }),
 })
 
