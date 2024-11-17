@@ -184,6 +184,15 @@ export const onDeleteChannel = async (channelId: string) => {
   } catch (error) {
     return { status: 400, message: "Oops! something went wrong" }
   }
+  
+    if (channelid) {
+      return { status: 200, message: "Channelid deleted successfully" }
+    }
+
+    return { status: 404, message: "Channelid not found!" }
+  } catch (error) {
+    return { status: 400, message: "Oops! something went wrong" }
+  }
 }
 export const onCreateChannelPost = async (
   channelid: string,
