@@ -178,6 +178,14 @@ model Notification {
   createdAt DateTime @default(now())
   read      Boolean  @default(false)
 }
+model pricing {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  createdAt DateTime @default(now())
+  price     Int?
+  active    Boolean  @default(false)
+  Group     Group?   @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  groupId   String?  @db.Uuid
+}
 
 
 enum GROUP_PRIVACY {
