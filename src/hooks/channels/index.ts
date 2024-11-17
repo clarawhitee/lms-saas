@@ -333,7 +333,7 @@ export const useReply = () => {
   return { onReply, onSetReply, onSetActiveComment, activeComment }
 }
 
-export const useGetReplies = (commentid: string) => {
+export const useGetReplies = (commented?: string) => { //it is either null or undefined so we make it optional 
   const { isFetching, data } = useQuery({
     queryKey: ["comment-replies", commentid],
     queryFn: () => onGetCommentReplies(commentid),
